@@ -1,0 +1,1007 @@
+@charset "UTF-8";
+
+*, :after, :before {
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+}
+::-webkit-scrollbar-thumb {
+	background: #a9a9a9;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	/*font-family: 'Nanum Myeongjo', sans-serif;*/
+	font-family: 'NanumGothic', 'Nanum Gothic', sans-serif;
+}
+
+.btn {
+	display: inline-block;
+	padding: 0;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	font-size: 0;
+	outline: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	outline: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}
+
+embed {
+	display: block;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+
+input:focus {
+	outline: none;
+}
+
+.hide {
+	display: none !important;
+}
+
+/* Customize the label (the container) */
+.custom_input {
+  display: inline-block;
+  position: relative;
+  padding-left: 45px;
+  cursor: pointer;
+  line-height: 34px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 20px;
+}
+
+/* Hide the browser's default checkbox */
+.custom_input input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+/* .custom_input:hover input ~ .checkmark {
+  background-color: #ccc;
+} */
+
+/* When the checkbox is checked, add a blue background */
+.custom_input input:checked ~ .checkmark {
+  background-color: #5f80e4;
+  border-color: #5f80e4;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+}
+
+/* Show the checkmark when checked */
+.custom_input input:checked ~ .checkmark:after {
+  border-color: #fff;
+}
+
+/* Style the checkmark/indicator */
+.custom_input .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 8px;
+  height: 13px;
+  border: solid #f6f8fb;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Create a custom radio button */
+.radiobtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 34px;
+    width: 34px;
+    background-color: #fff;
+    border: 4px solid #dedede;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+/* .custom_input:hover input ~ .radiobtn {
+    background-color: #ccc;
+} */
+
+/* When the radio button is checked, add a blue background */
+.custom_input input:checked ~ .radiobtn {
+    background-color: #fff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiobtn:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.custom_input input:checked ~ .radiobtn:after {
+    display: block;
+}
+.custom_input input:checked ~ .radiobtn {
+	border-color: #375ee7;
+}
+
+/* Style the indicator (dot/circle) */
+.custom_input .radiobtn:after {
+ 	top: 5px;
+	left: 5px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #375ee7;
+}
+
+.head {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 56px;
+	border-bottom: 1px solid #eee;
+	font-family: 'Nanum Square', sans-serif;
+}
+.head .problem_title {
+	font-size: 24px;
+	padding-top: 13px;
+}
+.head .problem_title .label {
+	display: inline-block;
+	width: 50px;
+	height: 30px;
+	margin: 0 20px;
+	font-size: 15px;
+	border: 1px solid #555;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 30px;
+	vertical-align: middle;
+}
+.head .problem_title .title {
+	font-weight: 900;
+}
+.head .problem_type {
+	padding-left: 87px;
+	font-size: 20px;
+}
+.head .problem_type .type,
+.head .problem_type .title {
+	vertical-align: middle;
+}
+.head .problem_type .type:after {
+	content: '';
+	padding-left: 20px;
+	border-right: 2px solid #375ee7;
+}
+.head .problem_type .title {
+	display: inline-block;
+	padding: 0 40px 0 0;
+	line-height: 33px;
+}
+.head .problem_type .btn_tip {
+	width: 125px;
+	height: 33px;
+	background: url('/middle/images/btn_tip.png') no-repeat;
+	background-size: contain;
+	vertical-align: top;
+}
+.head .problem_type .btn_tip:active {
+	background-image: url('/middle/images/btn_tip_pressed.png');
+}
+body .head {
+	height: 1px;
+}
+body.type .head {
+	height: 43px;
+}
+
+.container {
+	position: fixed;
+	top: 1px;
+	left: 0;
+	bottom: 58px;
+	right: 0;
+}
+body.type .container {
+	top: 43px;
+}
+.container:before,
+.container:after {
+	content: " ";
+    display: table;
+}
+.container:after {
+	clear: both;
+}
+
+.container .header {
+	overflow: auto;
+	float: left;
+	width: 49.7%;
+	height: 100%;
+	padding: 65px 40px 0;
+	font-size: 22px;
+	background: #fbfbfb;
+}
+
+.container .problem {
+	overflow: auto;
+	float: left;
+	width: 50.3%;
+	height: 100%;
+	border-left: 1px solid #eee;
+	padding: 0 85px 40px 40px;
+	background: #fbfbfb;
+}
+
+.container .problem .inner {
+	position: relative;
+}
+
+.container .problem .inner > img {
+	width: 100%;
+}
+
+.container .problem .voice {
+	z-index: 99;
+	position: absolute;
+	top: 20px;
+	right: 0;
+	text-align: right;
+	font-size: 0;
+}
+
+.container .problem .voice.basic {
+	width: 89px;
+	height: 40px;
+	background: url('/middle/images/btn_voice_basic.png') no-repeat;
+	background-size: contain;
+}
+
+.container .problem .voice.basic.active {
+	background-image: url('/middle/images/btn_voice_basic_pressed.png');
+}
+
+.container .problem .voice.playing {
+	width: 100px;
+	height: 40px;
+	background: url('/middle/images/btn_voice_playing.png') no-repeat;
+	background-size: contain;
+}
+
+.container .problem .voice.playing.active {
+	background-image: url('/middle/images/btn_voice_playing_pressed.png');
+}
+
+.container .problem .voice.paused {
+	width: 100px;
+	height: 40px;
+	background: url('/middle/images/btn_voice_paused.png') no-repeat;
+	background-size: contain;
+}
+
+.container .problem .voice.paused.active {
+	background-image: url('/middle/images/btn_voice_paused_pressed.png');
+}
+
+.container .problem .voice .btn-voice.basic {
+	width: 89px;
+	height: 40px;
+}
+.container .problem .voice .btn-voice.play,
+.container .problem .voice .btn-voice.stop {
+	width: 50px;
+	height: 40px;
+}
+
+.container .problem .question {
+	position: relative;
+	padding-top: 100px;
+	font-weight: 600;
+}
+
+.container .problem .question p {
+	margin: 0;
+}
+
+.container .problem .question.true:before {
+	content: ' ';
+	position: absolute;
+	top: 72px;
+	left: -32px;
+	width: 113px;
+	height: 85.5px;
+	background: url('/middle/images/bg_problem_true.png?ver=20171128_1') no-repeat;
+	background-size: contain;
+}
+
+.container .problem .question.false:before {
+	content: ' ';
+	position: absolute;
+	top: 51px;
+	left: -36px;
+	width: 107.5px;
+	height: 100px;
+	background: url('/middle/images/bg_problem_false.png?ver=20171128_1') no-repeat;
+	background-size: contain;
+}
+
+.container .problem .question p .proNum {
+	vertical-align: middle;
+}
+.container .problem .question p img {
+	vertical-align: middle;
+}
+.container .problem .question input[type=text] {
+	border: 1px solid #ccc !important;
+	border-radius: 3px !important;
+	font-size: 22px;
+}
+
+.container .problem .question input[type=text].success {
+	border: 1px solid #375ee7 !important;
+}
+
+.container .problem .choiceList p {
+	margin: 0;
+}
+
+.container .problem .choiceList ul,
+.container .problem .choiceList li {
+	list-style: none;
+	padding: 10px 0;
+	margin: 0;
+}
+
+.container .problem .choiceList ul {
+	margin: 40px 0 65px;
+	font-size: 22px; 
+}
+
+.container .problem .choiceList li.on a > span {
+	position: relative;
+}
+
+.container .problem .choiceList li.on a > span:before {
+	content: ' ';
+	position: absolute;
+	top: -2.5px;
+	left: -4.5px;
+	width: 35px;
+	height: 35px;
+	border: 2px solid #375ee7;
+	border-radius: 50%;
+}
+
+.container .problem .choiceList li > a {
+	display: table;
+	text-decoration: none;
+	color: #222;
+}
+
+.container .problem .choiceList li a > span {
+	display: table-cell;
+	vertical-align: top;
+	padding-right: 5px;
+	font-size: 28px;
+	line-height: 1;
+}
+
+.container .problem .penInput {
+	font-family: 'Nanum Square', sans-serif;
+	font-weight: 400;
+}
+
+.container .problem .penInput .tabs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.container .problem .penInput .tabs li {
+	float: left;
+	padding: 20px 35px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #222;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.container .problem .penInput .tabs li:first-child {
+	border-right: none;
+}
+
+.container .problem .penInput .tabs li.active {
+	background: #e7ecff;
+	border-bottom-color: #e7ecff;
+}
+
+.container .problem .penInput .tab_container {
+	width: 100%;
+	min-height: 175px;
+	padding: 5px;
+	background: #e7ecff;
+	border: 1px solid #ccc;
+	margin-top: -1px;
+}
+.container .problem .penInput .tab_container .tab_content {
+    width: 100%;
+    min-height: 177px;
+    background: #fff;
+    border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+.container .problem .penInput .tab_container .tab_content textarea {
+	font-family: 'Nanum Square', sans-serif;
+	font-weight: 400;
+	width: 100%;
+	min-height: 175px;
+	padding: 0;
+	border: none;
+	resize: none;
+	font-size: 22px;
+}
+
+.container .problem .label {
+	font-family: 'Nanum Square', sans-serif;
+	font-weight: 400;
+	position: absolute;
+	top: 0;
+	left: -20px;
+	padding: 0 18px;
+	color: #fffefe;
+	font-size: 18px;
+	height: 35px;
+	line-height: 35px;
+}
+
+.container .problem .label.green {
+	background: #8ba803;
+}
+
+.container .problem .label.orange {
+	background: #ff797a;
+}
+
+.container .problem .label.pink {
+	background: #fc85b2;
+}
+
+.container .problem .label.blue {
+	background: #01bddf;
+}
+
+.container.noheader .header{
+	display: none;
+}
+
+.container.noheader .problem {
+	width: 100%;
+	border: none;
+	float: none;
+}
+
+.container.noheader .problem .inner {
+	width: 794px;
+	margin: 0 auto;
+}
+
+.container.showanswer .header,
+.container.showanswer .problem {
+	height: calc(100% - 253px);
+}
+
+.container .answer {
+	font-family: 'Nanum Square', sans-serif;
+	font-weight: 700;
+	position: relative;
+	width: 100%;
+	float: left;
+	height: 253px;
+	border-top: 2px solid #375ee7;
+}
+
+.container .answer .btn-answer {
+	position: absolute;
+	top: -115px;;
+	right: 20px;
+	width: 75px;
+	height: 75px;
+	background: url('/middle/images/btn_answer.png') no-repeat;
+	background-size: contain;
+}
+.container .answer .btn-answer:active {
+	background-image: url('/middle/images/btn_answer_pressed.png');
+}
+
+.container .answer .btn-answer:disabled {
+	display: none;
+}
+
+.container .answer .btn-answer.open {
+	top: -24px;
+	width: 50px;
+	height: 50px;
+	background-image: url('/middle/images/btn_answer_open.png');
+}
+.container .answer .btn-answer.open:active {
+	background-image: url('/middle/images/btn_answer_open_pressed.png');
+}
+
+.container .answer .content {
+	overflow: hidden;
+	height: 100%;
+	padding-top: 23px;
+}
+
+.container .answer .content p {
+	margin: 0;
+}
+
+.container .answer .content .left {
+	overflow-y: auto;
+	float: left;
+	width: calc(100% - 332px);
+	height: 100%;
+	padding: 0 60px;
+}
+
+.container .answer .content .left .label {
+	display: inline-block;
+	width: 54px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 15px;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+}
+
+.container .answer .content .left .hit,
+.container .answer .content .left .desc {
+	position: relative;
+	padding-left: 74px;
+}
+
+.container .answer .content .left .hit {
+	font-size: 26px;
+	color: #222;
+	margin: 0 0 18px;
+	line-height: 1.5;
+}
+
+.container .answer .content .left .desc {
+	font-size: 22px;
+	font-weight: 400;
+	color: #666;
+	margin: 0 0 35px;
+	line-height: 1.5;
+}
+
+.container .answer .content .left .hit:before,
+.container .answer .content .left .desc:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 54px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 15px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.container .answer .content .left .hit:before {
+	margin-top: 5px;
+	content: '정답';
+	background: #fc5c4b;
+}
+
+.container .answer .content .left .desc:before {
+	margin-top: 2px;
+	content: '풀이';
+	background: #888;
+}
+
+.container .answer .content .left .percentage {
+	width: 175px;
+	height: 35px;
+	text-align: center;
+	margin-bottom: 20px;
+	color: #666;
+	border: 2px solid #666;
+	border-radius: 17.5px;
+}
+
+.container .answer .content .left .percentage .text {
+	font-size: 18px;
+	line-height: 31px;
+}
+
+.container .answer .content .left .percentage .text .percent:after {
+	content: '%';
+}
+
+.container .answer .content .left .evaluate {
+	margin: 0 0 94px 74px;
+	padding: 15px 0;
+	font-size: 19px;
+	border: 1px solid #dedede;
+	border-left: none;
+	border-right: none;
+}
+
+.container .answer .content .left .evaluate ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.container .answer .content .left .evaluate li {
+	display: inline-block;
+	font-size: 20px;
+	margin-right: 55px;
+}
+
+.container .answer .content .left .evaluate li input {
+	margin-right: 10px;
+}
+
+.container .answer .content .left .evaluate .text {
+	margin-bottom: 30px;
+}
+
+.container .answer .content .right {
+	float: right;
+	width: 332px;
+	height: 100%;
+}
+
+.container .answer .content .right .app {
+	padding-top: 15px;
+	text-align: center;
+}
+.container .answer .content .right .app .btn {
+	display: block;
+	margin: 0 auto 8px;
+	width: 224px;
+	height: 87px;
+}
+.container .answer .content .right .app .btn:active {
+	background-size: 224px 85px;
+}
+.container .answer .content .right .app .btn-video {
+	background: url('/middle/images/btn_video.png') no-repeat;
+	background-size: contain;
+}
+.container .answer .content .right .app .btn-video:active {
+	background-image: url('/middle/images/btn_video_pressed.png');
+}
+.container .answer .content .right .app .btn-listen {
+	background: url('/middle/images/btn_listen.png') no-repeat;
+	background-size: contain;
+}
+.container .answer .content .right .app .btn-listen:active {
+	background-image: url('/middle/images/btn_listen_pressed.png');
+}
+.container .answer .content .right .app .btn-read {
+	background: url('/middle/images/btn_read.png') no-repeat;
+	background-size: contain;
+}
+.container .answer .content .right .app .btn-read:active {
+	background-image: url('/middle/images/btn_read_pressed.png');
+}
+.container .answer .content .right .app .btn-checktime {
+	background: url('/middle/images/btn_checktime.png') no-repeat;
+	background-size: contain;
+}
+.container .answer .content .right .app .btn-checktime:active {
+	background-image: url('/middle/images/btn_checktime_pressed.png');
+}
+.container .answer .content .right .score {
+	padding-top: 15px;
+	text-align: center;
+	font-size: 0;
+}
+
+.container .answer .content .right .score .btn {
+	display: block;
+	margin: 0 auto;
+}
+
+.container .answer .content .right .score .text {
+	margin-bottom: 30px;
+	font-size: 19px;
+}
+
+.container .answer .content .right .score .btn-true {
+	width: 150px;
+	height: 50px;
+	background: url('/middle/images/btn_true.png') no-repeat;
+	background-size: contain;
+	margin-bottom: 15px;
+}
+
+.container .answer .content .right .score .btn-true.on {
+	background-image: url('/middle/images/btn_true_on.png');
+}
+
+.container .answer .content .right .score .btn-false {
+	width: 150px;
+	height: 50px;
+	background: url('/middle/images/btn_false.png') no-repeat;
+	background-size: contain;
+}
+
+.container .answer .content .right .score .btn-false.on {
+	background-image: url('/middle/images/btn_false_on.png');
+}
+
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 58px;
+	background: #fcf368;
+	font-family: 'Nanum Square', sans-serif;
+	font-weight: 700;
+	text-align: center;
+}
+
+.footer .mask {
+	position: relative;
+	max-width: 762px;
+}
+
+.footer .mask:before {
+	content: ' ';
+	z-index: 99;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 31px;
+	height: 58px;
+	background: url('/middle/images/pagination_mask_left.png') no-repeat;
+	background-size: contain;
+}
+
+.footer .mask:after {
+	content: ' ';
+	z-index: 99;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 31px;
+	height: 58px;
+	background: url('/middle/images/pagination_mask_right.png') no-repeat;
+	background-size: contain;
+}
+
+.footer .mask .nav {
+	overflow-x: scroll;
+}
+
+.footer .mask .nav::-webkit-scrollbar {
+	display: none;
+}
+
+.footer .pagination, .footer .page-item {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.footer .pagination {
+	width: -moz-max-content;
+	width: -webkit-max-content;
+	width: max-content;
+	height: 100%;
+	font-size: 0;
+	text-align: center;
+	padding: 10px 31px 0;
+}
+
+.footer .pagination .page-item {
+	display: inline-block;
+	width: 38px;
+	height: 38px;
+	margin-right: 5px;
+	border-radius: 3px;
+}
+.footer .pagination .page-item:last-child {
+	margin-right: 0;
+}
+.footer .pagination .page-item.hit:active,
+.footer .pagination .page-item.miss:active{
+	background-color: #e0d634 !important;
+}
+/* .footer .pagination .page-item:first-child {
+	margin-left: 65px;
+}
+
+.footer .pagination .page-item:last-child {
+	margin-right: 65px;
+} */
+
+.footer .pagination .page-link {
+	display: block;
+	height: 100%;
+	line-height: 38px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #222;
+}
+
+.footer .pagination .page-item.on {
+	background: url('/middle/images/pagination_on.png') center center no-repeat;
+	background-size: 36px;
+}
+.footer .pagination .page-item.on .page-link {
+	color: #fff;
+}
+
+.footer .pagination .page-item.hit {
+	background: url('/middle/images/pagination_hit.png') center center no-repeat;
+	background-size: 36px;
+}
+
+.footer .pagination .page-item.miss {
+	background: url('/middle/images/pagination_miss.png') center center no-repeat;
+	background-size: 33px 25px;
+}
+
+.footer .btn-prev, .footer .btn-next {
+	width: 142px;
+	height: 58px;
+	margin: 0;
+	line-height: 58px;
+	border-radius: 6px;
+	background: #fcf368;
+}
+
+.footer .btn-prev {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: url('/middle/images/pagination_prev.png') 32px center no-repeat;
+	background-size: 85px 22.5px;
+}
+
+.footer .btn-next {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: url('/middle/images/pagination_next.png') calc(100% - 32px) center no-repeat;
+	background-size: 85.5px 22.5px;
+}
+
+.footer .btn-next.disabled {
+	background-image: url('/middle/images/pagination_next_disabled.png');
+}
+.footer .btn-next.disabled:active {
+	background-color: transparent;
+}
+
+.footer .btn-prev:active, .footer .btn-next:active {
+	background-color: #e0d634;
+}
+.footer .btn-result {
+	position: absolute;
+	top: 9px;
+	right: -105px;
+	width: 105px;
+	height: 40px;
+	background: url('/middle/images/btn_result.png') no-repeat;
+	background-size: contain;
+}
+.footer .btn-end {
+	position: absolute;
+	right: 16px; 
+	bottom: 16px;
+	width: 171px;
+	height: 64px;
+	background: url('/middle/images/btn_end.png') no-repeat;
+	background-size: contain;
+}
+
+
+
+
+/* 초등 CSS */
+.txtinput3 {
+	border:0 !important;
+	width:100%;height:100%;
+	background-color:transparent;
+	background-image: url('../../images/etest/blank.gif');
+	text-align:center;
+}
+.spnmathjaxbox {
+	display: inline-block;
+}
+.spnheadflag {
+	font-weight: 600;
+}
+.question .rectangle {
+	border-width:1px;
+	border-color:#333;
+	border-style:Solid;
+	padding:5px!important;
+	text-align:justify;
+	width:100% !important;
+	height:auto !important;
+}
+.question td, .question, .question.rectangle td
+{
+	font-size: 18pt;
+	line-height: 1.5;
+}
+.header p, .header td, .header, .header .rectangle td
+{
+	font-size: 18pt;
+	line-height: 1.5;
+}
